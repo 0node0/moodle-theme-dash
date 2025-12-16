@@ -96,7 +96,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @param int $headinglevel What level the 'h' tag will be.
      * @return string HTML for the header bar.
      */
-    public function context_header($headerinfo = null, $headinglevel = 1) {
+    public function context_header($headerinfo = null, $headinglevel = 1): string {
         return parent::context_header($headerinfo, $headinglevel);
     }
 
