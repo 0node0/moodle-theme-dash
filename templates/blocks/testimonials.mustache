@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/blocks/testimonials
+
+    Testimonials block snippet for the front page.
+
+    Example context (json):
+    {
+        "title": "What Our Students Say",
+        "subtitle": "Hear from our community",
+        "testimonials": [
+            {
+                "content": "Amazing platform with great courses!",
+                "authorname": "John Doe",
+                "authorrole": "Student",
+                "authorimage": "url/to/image.jpg"
+            }
+        ]
+    }
+}}
+<section class="dash-block dash-testimonials">
+    <div class="dash-block-inner">
+        <div class="dash-block-header">
+            {{#title}}
+            <h2 class="dash-block-title">{{{ title }}}</h2>
+            {{/title}}
+            {{#subtitle}}
+            <p class="dash-block-subtitle">{{{ subtitle }}}</p>
+            {{/subtitle}}
+        </div>
+
+        <div class="dash-testimonials-grid">
+            {{#testimonials}}
+            <div class="dash-testimonial-card" data-reveal>
+                <div class="dash-testimonial-content">
+                    {{{ content }}}
+                </div>
+                <div class="dash-testimonial-author">
+                    {{#authorimage}}
+                    <img src="{{{ authorimage }}}" alt="{{{ authorname }}}" loading="lazy">
+                    {{/authorimage}}
+                    {{^authorimage}}
+                    <div class="dash-testimonial-avatar" style="width: 50px; height: 50px; border-radius: 50%; background: var(--dash-primary-light); display: flex; align-items: center; justify-content: center; color: var(--dash-primary); font-weight: 600;">
+                        {{authorinitial}}
+                    </div>
+                    {{/authorimage}}
+                    <div>
+                        <div class="dash-testimonial-name">{{{ authorname }}}</div>
+                        {{#authorrole}}
+                        <div class="dash-testimonial-role">{{{ authorrole }}}</div>
+                        {{/authorrole}}
+                    </div>
+                </div>
+            </div>
+            {{/testimonials}}
+        </div>
+    </div>
+</section>
+

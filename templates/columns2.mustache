@@ -1,0 +1,114 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/columns2
+
+    Main 2-column layout for the Dash theme.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - Attributes for the body tag
+    * sidepreblocks - HTML for the side pre blocks
+    * hasblocks - True if there are blocks to show
+    * regionmainsettingsmenu - The region main settings menu
+    * hasregionmainsettingsmenu - True if the region main settings menu is shown
+    * primarymoremenu - The primary more menu
+    * secondarymoremenu - The secondary more menu
+    * usermenu - The user menu
+    * langmenu - The language menu
+    * mobileprimarynav - The mobile primary navigation
+    * headercontent - Custom content for the header
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "htmlattributes": "lang=\"en\" dir=\"ltr\""
+        }
+    }
+}}
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body {{{ bodyattributes }}}>
+{{{ output.standard_top_of_body_html }}}
+
+<div id="page-wrapper" class="d-print-block">
+
+    {{{ output.full_header }}}
+
+    <div id="page" class="drawers drag-container">
+        <div id="topofscroll" class="main-inner">
+            <div id="page-content" class="pb-3 d-print-block">
+                <div id="region-main-box">
+                    {{#hasregionmainsettingsmenu}}
+                    <div id="region-main-settings-menu" class="d-print-none">
+                        <div class="region_main_settings_menu_proxy"></div>
+                        {{{ regionmainsettingsmenu }}}
+                    </div>
+                    {{/hasregionmainsettingsmenu}}
+                    <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
+                        {{#hasregionmainsettingsmenu}}
+                            <div class="region_main_settings_menu_proxy"></div>
+                        {{/hasregionmainsettingsmenu}}
+                        {{{ output.course_content_header }}}
+                        {{{ output.main_content }}}
+                        {{{ output.activity_navigation }}}
+                        {{{ output.course_content_footer }}}
+                    </section>
+                </div>
+            </div>
+        </div>
+        {{> theme_dash/drawer }}
+    </div>
+    {{> theme_dash/footer }}
+</div>
+
+<!-- Dark mode toggle button -->
+<button class="dash-darkmode-toggle" type="button" aria-label="{{#str}}toggledarkmode, theme_dash{{/str}}" title="{{#str}}toggledarkmode, theme_dash{{/str}}">
+    <span class="icon-sun">
+        <i class="fa fa-sun-o" aria-hidden="true"></i>
+    </span>
+    <span class="icon-moon">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+    </span>
+</button>
+
+<!-- Back to top button -->
+<button class="dash-back-to-top" type="button" aria-label="{{#str}}backtotop, theme_dash{{/str}}">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+{{{ output.standard_end_of_body_html }}}
+
+</body>
+</html>
+{{#js}}
+require(['theme_dash/darkmode', 'theme_dash/frontpage'], function(DarkMode, FrontPage) {
+    DarkMode.init();
+    FrontPage.init();
+});
+{{/js}}
+

@@ -1,0 +1,176 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/frontpage
+
+    Front page layout for the Dash theme with customizable blocks.
+}}
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body {{{ bodyattributes }}}>
+{{{ output.standard_top_of_body_html }}}
+
+<div id="page-wrapper" class="d-print-block">
+
+    {{{ output.full_header }}}
+
+    <div id="page" class="drawers drag-container">
+        <div id="topofscroll">
+            <!-- Hero Block -->
+            {{#enablehero}}
+            <section class="dash-block dash-hero">
+                <div class="dash-hero-content">
+                    <div class="dash-hero-text">
+                        {{{ herocontent }}}
+                    </div>
+                    {{#heroimage}}
+                    <div class="dash-hero-image">
+                        <img src="{{{ heroimage }}}" alt="" loading="lazy">
+                    </div>
+                    {{/heroimage}}
+                </div>
+            </section>
+            {{/enablehero}}
+
+            <!-- Features Block -->
+            {{#enablefeatures}}
+            <section class="dash-block dash-features">
+                <div class="dash-block-inner">
+                    {{{ featurescontent }}}
+                </div>
+            </section>
+            {{/enablefeatures}}
+
+            <!-- Main Content Area -->
+            <div class="main-inner">
+                <div id="page-content" class="pb-3 d-print-block">
+                    <!-- Front page top block region -->
+                    {{#hasblocks}}
+                    <div id="frontpage-top-blocks" class="mb-4">
+                        {{{ frontpagetopblocks }}}
+                    </div>
+                    {{/hasblocks}}
+
+                    <div id="region-main-box">
+                        <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
+                            {{{ output.course_content_header }}}
+                            {{{ output.main_content }}}
+                            {{{ output.course_content_footer }}}
+                        </section>
+                    </div>
+
+                    <!-- Front page bottom block region -->
+                    {{#hasbottomblocks}}
+                    <div id="frontpage-bottom-blocks" class="mt-4">
+                        {{{ frontpagebottomblocks }}}
+                    </div>
+                    {{/hasbottomblocks}}
+                </div>
+            </div>
+
+            <!-- Stats Block -->
+            {{#enablestats}}
+            <section class="dash-block dash-stats">
+                <div class="dash-block-inner">
+                    {{{ statscontent }}}
+                </div>
+            </section>
+            {{/enablestats}}
+
+            <!-- Testimonials Block -->
+            {{#enabletestimonials}}
+            <section class="dash-block dash-testimonials">
+                <div class="dash-block-inner">
+                    {{{ testimonialscontent }}}
+                </div>
+            </section>
+            {{/enabletestimonials}}
+
+            <!-- FAQ Block -->
+            {{#enablefaq}}
+            <section class="dash-block dash-faq">
+                <div class="dash-block-inner">
+                    {{{ faqcontent }}}
+                </div>
+            </section>
+            {{/enablefaq}}
+
+            <!-- Partners Block -->
+            {{#enablepartners}}
+            <section class="dash-block dash-partners">
+                <div class="dash-block-inner">
+                    {{{ partnerscontent }}}
+                </div>
+            </section>
+            {{/enablepartners}}
+
+            <!-- CTA Block -->
+            {{#enablecta}}
+            <section class="dash-block dash-cta">
+                <div class="dash-block-inner">
+                    {{{ ctacontent }}}
+                </div>
+            </section>
+            {{/enablecta}}
+
+            <!-- Courses Showcase Block -->
+            {{#enablecourses}}
+            <section class="dash-block dash-courses">
+                <div class="dash-block-inner">
+                    {{{ coursescontent }}}
+                </div>
+            </section>
+            {{/enablecourses}}
+        </div>
+        {{> theme_dash/drawer }}
+    </div>
+    {{> theme_dash/footer }}
+</div>
+
+<!-- Dark mode toggle button -->
+<button class="dash-darkmode-toggle" type="button" aria-label="{{#str}}toggledarkmode, theme_dash{{/str}}" title="{{#str}}toggledarkmode, theme_dash{{/str}}">
+    <span class="icon-sun">
+        <i class="fa fa-sun-o" aria-hidden="true"></i>
+    </span>
+    <span class="icon-moon">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+    </span>
+</button>
+
+<!-- Back to top button -->
+<button class="dash-back-to-top" type="button" aria-label="{{#str}}backtotop, theme_dash{{/str}}">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+{{{ output.standard_end_of_body_html }}}
+
+</body>
+</html>
+{{#js}}
+require(['theme_dash/darkmode', 'theme_dash/frontpage'], function(DarkMode, FrontPage) {
+    DarkMode.init();
+    FrontPage.init();
+});
+{{/js}}
+

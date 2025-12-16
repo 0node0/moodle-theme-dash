@@ -1,0 +1,214 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/core/email_html
+
+    Custom HTML email template for the Dash theme.
+}}
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{subject}}</title>
+    <style>
+        /* Reset styles */
+        body, table, td, p, a, li {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #f8fafc;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+
+        .email-wrapper {
+            width: 100%;
+            background-color: #f8fafc;
+            padding: 40px 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .email-header h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .email-header img {
+            max-height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .email-body {
+            padding: 40px;
+        }
+
+        .email-body h2 {
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .email-body p {
+            color: #334155;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .email-body a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .email-body a:hover {
+            text-decoration: underline;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #2563eb;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 16px 0;
+        }
+
+        .email-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .email-footer {
+            background-color: #f8fafc;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .email-footer p {
+            color: #64748b;
+            font-size: 12px;
+            margin: 0 0 8px 0;
+        }
+
+        .email-footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .email-social {
+            margin: 16px 0;
+        }
+
+        .email-social a {
+            display: inline-block;
+            margin: 0 8px;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            .email-header,
+            .email-body,
+            .email-footer {
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0" width="100%">
+            <!-- Header -->
+            <tr>
+                <td class="email-header">
+                    {{#logourl}}
+                    <img src="{{{ logourl }}}" alt="{{{ sitename }}}" style="max-height: 40px;">
+                    {{/logourl}}
+                    {{^logourl}}
+                    <h1>{{{ sitename }}}</h1>
+                    {{/logourl}}
+                </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+                <td class="email-body">
+                    {{{ body }}}
+                </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+                <td class="email-footer">
+                    <p>&copy; {{year}} {{{ sitename }}}. All rights reserved.</p>
+                    {{#siteurl}}
+                    <p><a href="{{{ siteurl }}}">{{{ siteurl }}}</a></p>
+                    {{/siteurl}}
+                    <p style="margin-top: 16px; font-size: 11px; color: #94a3b8;">
+                        This is an automated message. Please do not reply directly to this email.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+# Moodle Theme Development
+*.log
+*.cache
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if using grunt for AMD)
+node_modules/
+npm-debug.log
+
+# Compiled AMD modules (generated from amd/src/)
+amd/build/
+
+# SCSS compiled output (handled by Moodle)
+styles.css
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# PHP
+vendor/
+

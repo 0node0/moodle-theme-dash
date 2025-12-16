@@ -1,0 +1,675 @@
+// Theme Dash - Default Preset
+// ============================
+// Main SCSS entry point for the Dash theme.
+
+// -----------------------------------------------------------------------------
+// Import Variables (Must be first)
+// -----------------------------------------------------------------------------
+@import '../variables';
+
+// -----------------------------------------------------------------------------
+// Import Bootstrap (Core from Boost parent theme)
+// -----------------------------------------------------------------------------
+// Note: Bootstrap is loaded via Boost parent theme.
+// We're extending/overriding on top of it.
+
+// -----------------------------------------------------------------------------
+// Base Styles
+// -----------------------------------------------------------------------------
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    font-family: var(--dash-font-family);
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-base;
+    color: var(--dash-text);
+    background-color: var(--dash-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--dash-font-family);
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    margin-bottom: $headings-margin-bottom;
+    color: var(--dash-text);
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--dash-primary);
+    text-decoration: none;
+    transition: var(--dash-transition-fast);
+
+    &:hover {
+        color: var(--dash-primary-hover);
+        text-decoration: underline;
+    }
+}
+
+// Selection
+::selection {
+    background-color: var(--dash-primary);
+    color: #fff;
+}
+
+// -----------------------------------------------------------------------------
+// Main Layout Structure
+// -----------------------------------------------------------------------------
+#page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dash-bg);
+}
+
+#page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#page-content {
+    flex: 1;
+    padding: 1.5rem;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.main-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+// Container
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+// -----------------------------------------------------------------------------
+// Cards
+// -----------------------------------------------------------------------------
+.card {
+    background-color: var(--dash-bg);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius-lg);
+    box-shadow: var(--dash-shadow-sm);
+    transition: var(--dash-transition);
+
+    &:hover {
+        box-shadow: var(--dash-shadow);
+    }
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    background-color: var(--dash-surface);
+    border-bottom: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius-lg) var(--dash-radius-lg) 0 0;
+
+    h3, h4, h5 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    background-color: var(--dash-surface);
+    border-top: 1px solid var(--dash-border);
+    border-radius: 0 0 var(--dash-radius-lg) var(--dash-radius-lg);
+}
+
+// -----------------------------------------------------------------------------
+// Buttons
+// -----------------------------------------------------------------------------
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-family: var(--dash-font-family);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: var(--dash-radius);
+    transition: var(--dash-transition-fast);
+    cursor: pointer;
+
+    &:focus {
+        outline: 2px solid var(--dash-primary);
+        outline-offset: 2px;
+    }
+}
+
+.btn-primary {
+    background-color: var(--dash-primary);
+    border-color: var(--dash-primary);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: var(--dash-primary-hover);
+        border-color: var(--dash-primary-hover);
+        color: #fff;
+    }
+}
+
+.btn-secondary {
+    background-color: var(--dash-surface);
+    border-color: var(--dash-border);
+    color: var(--dash-text);
+
+    &:hover,
+    &:focus {
+        background-color: var(--dash-surface-hover);
+        border-color: var(--dash-border-dark);
+    }
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border-color: var(--dash-primary);
+    color: var(--dash-primary);
+
+    &:hover,
+    &:focus {
+        background-color: var(--dash-primary);
+        color: #fff;
+    }
+}
+
+.btn-success {
+    background-color: var(--dash-success);
+    border-color: var(--dash-success);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: darken(#059669, 10%);
+        border-color: darken(#059669, 10%);
+    }
+}
+
+.btn-warning {
+    background-color: var(--dash-warning);
+    border-color: var(--dash-warning);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: darken(#d97706, 10%);
+        border-color: darken(#d97706, 10%);
+    }
+}
+
+.btn-danger {
+    background-color: var(--dash-danger);
+    border-color: var(--dash-danger);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: darken(#dc2626, 10%);
+        border-color: darken(#dc2626, 10%);
+    }
+}
+
+.btn-link {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--dash-primary);
+    padding: 0;
+
+    &:hover,
+    &:focus {
+        color: var(--dash-primary-hover);
+        text-decoration: underline;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Forms
+// -----------------------------------------------------------------------------
+.form-control,
+.form-select {
+    padding: 0.625rem 0.875rem;
+    font-family: var(--dash-font-family);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--dash-text);
+    background-color: var(--dash-bg);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius);
+    transition: var(--dash-transition-fast);
+
+    &::placeholder {
+        color: var(--dash-text-muted);
+    }
+
+    &:focus {
+        border-color: var(--dash-primary);
+        box-shadow: 0 0 0 3px var(--dash-primary-light);
+        outline: none;
+    }
+
+    &:disabled,
+    &[readonly] {
+        background-color: var(--dash-surface);
+        cursor: not-allowed;
+    }
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--dash-text);
+    margin-bottom: 0.5rem;
+}
+
+.form-text {
+    font-size: 0.8125rem;
+    color: var(--dash-text-muted);
+    margin-top: 0.375rem;
+}
+
+.invalid-feedback {
+    font-size: 0.8125rem;
+    color: var(--dash-danger);
+    margin-top: 0.375rem;
+}
+
+// Checkboxes and radios
+.form-check {
+    .form-check-input {
+        width: 1.125rem;
+        height: 1.125rem;
+        margin-top: 0.125rem;
+        border-color: var(--dash-border);
+        transition: var(--dash-transition-fast);
+
+        &:checked {
+            background-color: var(--dash-primary);
+            border-color: var(--dash-primary);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 3px var(--dash-primary-light);
+        }
+    }
+
+    .form-check-label {
+        font-size: 0.875rem;
+        color: var(--dash-text);
+    }
+}
+
+// Input groups
+.input-group-text {
+    background-color: var(--dash-surface);
+    border-color: var(--dash-border);
+    color: var(--dash-text-muted);
+    font-size: 0.875rem;
+}
+
+// -----------------------------------------------------------------------------
+// Tables
+// -----------------------------------------------------------------------------
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--dash-text);
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--dash-border);
+    }
+
+    thead th {
+        font-weight: 600;
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: var(--dash-text-muted);
+        border-bottom: 2px solid var(--dash-border);
+        background-color: var(--dash-surface);
+    }
+
+    tbody tr {
+        transition: var(--dash-transition-fast);
+
+        &:hover {
+            background-color: var(--dash-surface);
+        }
+    }
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--dash-surface);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// -----------------------------------------------------------------------------
+// Alerts
+// -----------------------------------------------------------------------------
+.alert {
+    padding: 1rem 1.25rem;
+    border-radius: var(--dash-radius);
+    border: 1px solid;
+    margin-bottom: 1rem;
+
+    .alert-icon {
+        margin-right: 0.75rem;
+    }
+}
+
+.alert-info {
+    background-color: var(--dash-info-light);
+    border-color: var(--dash-info);
+    color: var(--dash-info);
+}
+
+.alert-success {
+    background-color: var(--dash-success-light);
+    border-color: var(--dash-success);
+    color: var(--dash-success);
+}
+
+.alert-warning {
+    background-color: var(--dash-warning-light);
+    border-color: var(--dash-warning);
+    color: var(--dash-warning);
+}
+
+.alert-danger {
+    background-color: var(--dash-danger-light);
+    border-color: var(--dash-danger);
+    color: var(--dash-danger);
+}
+
+// -----------------------------------------------------------------------------
+// Badges
+// -----------------------------------------------------------------------------
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--dash-radius);
+}
+
+.badge-primary,
+.badge.bg-primary {
+    background-color: var(--dash-primary) !important;
+    color: #fff !important;
+}
+
+.badge-success,
+.badge.bg-success {
+    background-color: var(--dash-success) !important;
+    color: #fff !important;
+}
+
+.badge-warning,
+.badge.bg-warning {
+    background-color: var(--dash-warning) !important;
+    color: #fff !important;
+}
+
+.badge-danger,
+.badge.bg-danger {
+    background-color: var(--dash-danger) !important;
+    color: #fff !important;
+}
+
+// -----------------------------------------------------------------------------
+// Progress
+// -----------------------------------------------------------------------------
+.progress {
+    height: 8px;
+    background-color: var(--dash-surface);
+    border-radius: var(--dash-radius-pill);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--dash-primary);
+    transition: width 0.3s ease;
+}
+
+// -----------------------------------------------------------------------------
+// Import Component Styles
+// -----------------------------------------------------------------------------
+@import '../darkmode';
+@import '../topbar';
+@import '../footer';
+@import '../blocks';
+@import '../enrollment';
+@import '../rtl';
+@import '../utilities';
+
+// -----------------------------------------------------------------------------
+// Moodle-specific Overrides
+// -----------------------------------------------------------------------------
+
+// Course cards
+.dashboard-card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    .card-img-top {
+        height: 140px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+}
+
+// Course content
+.course-content {
+    .section {
+        margin-bottom: 2rem;
+    }
+
+    .sectionname {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--dash-primary);
+    }
+}
+
+// Activity cards
+.activity-item {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--dash-bg);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius);
+    transition: var(--dash-transition-fast);
+
+    &:hover {
+        background-color: var(--dash-surface);
+        border-color: var(--dash-primary);
+    }
+
+    .activityiconcontainer {
+        background-color: var(--dash-surface);
+        border-radius: var(--dash-radius);
+    }
+}
+
+// User profile
+.userprofile {
+    .userpicture {
+        border-radius: 50%;
+        border: 3px solid var(--dash-border);
+    }
+}
+
+// Calendar
+.calendar_event_course {
+    background-color: var(--dash-primary-light);
+    border-color: var(--dash-primary);
+}
+
+.calendar_event_user {
+    background-color: var(--dash-info-light);
+    border-color: var(--dash-info);
+}
+
+// Messages
+.message-app {
+    .list-group-item {
+        border-color: var(--dash-border);
+
+        &.active {
+            background-color: var(--dash-primary-light);
+            border-color: var(--dash-primary);
+        }
+    }
+}
+
+// Quiz
+.que {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--dash-bg);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius-lg);
+
+    .info {
+        background-color: var(--dash-surface);
+        border-radius: var(--dash-radius);
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    &.correct {
+        border-color: var(--dash-success);
+        background-color: var(--dash-success-light);
+    }
+
+    &.incorrect {
+        border-color: var(--dash-danger);
+        background-color: var(--dash-danger-light);
+    }
+}
+
+// Forum
+.forumpost {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--dash-bg);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius-lg);
+
+    .author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+}
+
+// Grades
+.user-grade {
+    font-weight: 600;
+    
+    &.pass {
+        color: var(--dash-success);
+    }
+    
+    &.fail {
+        color: var(--dash-danger);
+    }
+}
+
+// File manager
+.filemanager {
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius);
+    background-color: var(--dash-surface);
+}
+
+.fp-navbar {
+    background-color: var(--dash-bg);
+    border-bottom: 1px solid var(--dash-border);
+}
+
+// TinyMCE / Atto editor
+.editor_atto_toolbar {
+    background-color: var(--dash-surface);
+    border-color: var(--dash-border);
+}
+
+.editor_atto_content_wrap {
+    background-color: var(--dash-bg);
+    border-color: var(--dash-border);
+}
+

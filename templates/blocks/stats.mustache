@@ -1,0 +1,51 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/blocks/stats
+
+    Statistics block snippet for the front page.
+
+    Example context (json):
+    {
+        "title": "Our Impact",
+        "stats": [
+            {"number": "5000+", "count": 5000, "label": "Students"},
+            {"number": "100+", "count": 100, "label": "Courses"},
+            {"number": "50+", "count": 50, "label": "Instructors"},
+            {"number": "95%", "count": 95, "label": "Satisfaction"}
+        ]
+    }
+}}
+<section class="dash-block dash-stats">
+    <div class="dash-block-inner">
+        {{#title}}
+        <div class="dash-block-header">
+            <h2 class="dash-block-title">{{{ title }}}</h2>
+        </div>
+        {{/title}}
+
+        <div class="dash-stats-grid">
+            {{#stats}}
+            <div class="dash-stat-item" data-reveal>
+                <div class="dash-stat-number" data-count="{{{ count }}}">{{{ number }}}</div>
+                <div class="dash-stat-label">{{{ label }}}</div>
+            </div>
+            {{/stats}}
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,106 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/footer
+
+    Custom footer for the Dash theme.
+}}
+<footer id="page-footer" class="dash-footer">
+    <div class="container-fluid">
+        <!-- Footer columns -->
+        <div class="dash-footer-content">
+            {{#footercol1}}
+            <div class="dash-footer-col dash-footer-brand">
+                {{{ footercol1 }}}
+                {{#hassociallinks}}
+                <div class="dash-footer-social">
+                    {{#socialfacebook}}
+                    <a href="{{{ socialfacebook }}}" class="social-facebook" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    {{/socialfacebook}}
+                    {{#socialtwitter}}
+                    <a href="{{{ socialtwitter }}}" class="social-twitter" target="_blank" rel="noopener" aria-label="Twitter">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    {{/socialtwitter}}
+                    {{#sociallinkedin}}
+                    <a href="{{{ sociallinkedin }}}" class="social-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    {{/sociallinkedin}}
+                    {{#socialinstagram}}
+                    <a href="{{{ socialinstagram }}}" class="social-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    {{/socialinstagram}}
+                    {{#socialyoutube}}
+                    <a href="{{{ socialyoutube }}}" class="social-youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    {{/socialyoutube}}
+                    {{#socialgithub}}
+                    <a href="{{{ socialgithub }}}" class="social-github" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    {{/socialgithub}}
+                </div>
+                {{/hassociallinks}}
+            </div>
+            {{/footercol1}}
+
+            {{#footercol2}}
+            <div class="dash-footer-col">
+                {{{ footercol2 }}}
+            </div>
+            {{/footercol2}}
+
+            {{#footercol3}}
+            <div class="dash-footer-col">
+                {{{ footercol3 }}}
+            </div>
+            {{/footercol3}}
+
+            {{#footercol4}}
+            <div class="dash-footer-col">
+                {{{ footercol4 }}}
+            </div>
+            {{/footercol4}}
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="dash-footer-bottom">
+            <div class="dash-footer-copyright">
+                {{{ copyright }}}
+            </div>
+            <div class="dash-footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                {{#output.login_info}}
+                <span class="logininfo">{{{ output.login_info }}}</span>
+                {{/output.login_info}}
+            </div>
+        </div>
+
+        <!-- Moodle standard footer output -->
+        <div class="dash-footer-moodle mt-3 pt-3 border-top text-center">
+            {{{ output.standard_footer_html }}}
+            {{{ output.page_doc_link }}}
+        </div>
+    </div>
+</footer>
+

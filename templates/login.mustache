@@ -1,0 +1,298 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/login
+
+    Custom login page layout for the Dash theme.
+}}
+{{{ output.doctype }}}
+<html {{{ output.htmlattributes }}}>
+<head>
+    <title>{{{ output.page_title }}}</title>
+    <link rel="shortcut icon" href="{{{ output.favicon }}}" />
+    {{{ output.standard_head_html }}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .dash-login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--dash-primary) 0%, #1e40af 100%);
+            position: relative;
+        }
+
+        {{#loginbackgroundimage}}
+        .dash-login-wrapper {
+            background: url('{{{ loginbackgroundimage }}}') center center / cover no-repeat;
+        }
+
+        .dash-login-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+        }
+        {{/loginbackgroundimage}}
+
+        .dash-login-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--dash-bg);
+            border-radius: var(--dash-radius-xl);
+            box-shadow: var(--dash-shadow-xl);
+            padding: 2.5rem;
+        }
+
+        .dash-login-container.position-left {
+            margin-right: auto;
+            margin-left: 5%;
+        }
+
+        .dash-login-container.position-right {
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+        .dash-login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .dash-login-logo {
+            max-height: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .dash-login-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .dash-login-subtitle {
+            color: var(--dash-text-muted);
+            font-size: 0.875rem;
+        }
+
+        .dash-login-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .dash-login-form label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--dash-text);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .dash-login-form input[type="text"],
+        .dash-login-form input[type="password"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--dash-border);
+            border-radius: var(--dash-radius);
+            background-color: var(--dash-bg);
+            color: var(--dash-text);
+            font-size: 0.875rem;
+            transition: var(--dash-transition-fast);
+        }
+
+        .dash-login-form input:focus {
+            outline: none;
+            border-color: var(--dash-primary);
+            box-shadow: 0 0 0 3px var(--dash-primary-light);
+        }
+
+        .dash-login-form .btn-primary {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .dash-login-links {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .dash-login-links a {
+            color: var(--dash-primary);
+            font-size: 0.875rem;
+        }
+
+        .dash-login-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dash-border);
+            text-align: center;
+        }
+
+        .dash-login-footer p {
+            color: var(--dash-text-muted);
+            font-size: 0.8125rem;
+            margin: 0;
+        }
+
+        .dash-login-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--dash-text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .dash-login-divider::before,
+        .dash-login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--dash-border);
+        }
+
+        .dash-login-divider::before {
+            margin-right: 1rem;
+        }
+
+        .dash-login-divider::after {
+            margin-left: 1rem;
+        }
+
+        .dash-identity-providers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dash-identity-providers a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--dash-border);
+            border-radius: var(--dash-radius);
+            color: var(--dash-text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--dash-transition-fast);
+        }
+
+        .dash-identity-providers a:hover {
+            background-color: var(--dash-surface);
+            border-color: var(--dash-border-dark);
+        }
+
+        /* Dark mode toggle on login page */
+        .dash-login-darkmode {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+    </style>
+</head>
+
+<body {{{ bodyattributes }}}>
+{{{ output.standard_top_of_body_html }}}
+
+<div class="dash-login-wrapper">
+    <div class="dash-login-container position-{{loginboxposition}}">
+        <button class="dash-darkmode-toggle dash-login-darkmode" type="button" aria-label="{{#str}}toggledarkmode, theme_dash{{/str}}">
+            <span class="icon-sun">
+                <i class="fa fa-sun-o" aria-hidden="true"></i>
+            </span>
+            <span class="icon-moon">
+                <i class="fa fa-moon-o" aria-hidden="true"></i>
+            </span>
+        </button>
+
+        <div class="dash-login-header">
+            {{#logourl}}
+            <img src="{{{ logourl }}}" alt="{{{ sitename }}}" class="dash-login-logo">
+            {{/logourl}}
+            {{^logourl}}
+            <h1 class="dash-login-title">{{{ sitename }}}</h1>
+            {{/logourl}}
+            <p class="dash-login-subtitle">Sign in to your account</p>
+        </div>
+
+        {{#logincustomhtml}}
+        <div class="dash-login-custom mb-4">
+            {{{ logincustomhtml }}}
+        </div>
+        {{/logincustomhtml}}
+
+        {{#error}}
+        <div class="alert alert-danger" role="alert">
+            {{{ error }}}
+        </div>
+        {{/error}}
+
+        <div class="dash-login-form">
+            {{{ output.main_content }}}
+        </div>
+
+        {{#hasidentityproviders}}
+        <div class="dash-login-divider">or continue with</div>
+        <div class="dash-identity-providers">
+            {{#identityproviders}}
+            <a href="{{{ url }}}" title="{{{ name }}}">
+                {{#iconurl}}
+                <img src="{{{ iconurl }}}" alt="" width="20" height="20">
+                {{/iconurl}}
+                {{{ name }}}
+            </a>
+            {{/identityproviders}}
+        </div>
+        {{/hasidentityproviders}}
+
+        <div class="dash-login-links">
+            {{#canloginasguest}}
+            <a href="{{{ loginasguest }}}">{{#str}}loginguest{{/str}}</a>
+            <span class="mx-2">•</span>
+            {{/canloginasguest}}
+            {{#forgotpasswordurl}}
+            <a href="{{{ forgotpasswordurl }}}">{{#str}}forgotten{{/str}}</a>
+            {{/forgotpasswordurl}}
+        </div>
+
+        {{#cansignup}}
+        <div class="dash-login-footer">
+            <p>Don't have an account? <a href="{{{ signupurl }}}">Create one</a></p>
+        </div>
+        {{/cansignup}}
+    </div>
+</div>
+
+{{{ output.standard_end_of_body_html }}}
+
+</body>
+</html>
+{{#js}}
+require(['theme_dash/darkmode'], function(DarkMode) {
+    DarkMode.init();
+});
+{{/js}}
+

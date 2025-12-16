@@ -1,0 +1,56 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/blocks/cta
+
+    Call to Action block snippet for the front page.
+
+    Example context (json):
+    {
+        "title": "Ready to Start Learning?",
+        "subtitle": "Join thousands of students already learning with us.",
+        "primarybuttontext": "Sign Up Free",
+        "primarybuttonurl": "/login/signup.php",
+        "secondarybuttontext": "Learn More",
+        "secondarybuttonurl": "/about"
+    }
+}}
+<section class="dash-block dash-cta">
+    <div class="dash-block-inner">
+        <div class="dash-cta-content">
+            {{#title}}
+            <h2>{{{ title }}}</h2>
+            {{/title}}
+            {{#subtitle}}
+            <p>{{{ subtitle }}}</p>
+            {{/subtitle}}
+            <div class="dash-cta-actions">
+                {{#primarybuttontext}}
+                <a href="{{{ primarybuttonurl }}}" class="btn-dash-primary btn-dash-lg" style="background: #fff; color: var(--dash-primary);">
+                    {{{ primarybuttontext }}}
+                </a>
+                {{/primarybuttontext}}
+                {{#secondarybuttontext}}
+                <a href="{{{ secondarybuttonurl }}}" class="btn-dash-outline btn-dash-lg" style="border-color: #fff; color: #fff;">
+                    {{{ secondarybuttontext }}}
+                </a>
+                {{/secondarybuttontext}}
+            </div>
+        </div>
+    </div>
+</section>
+

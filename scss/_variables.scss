@@ -1,0 +1,250 @@
+// Theme Dash - SCSS Variables
+// ============================
+// Color palette, typography, and CSS custom properties for theming.
+
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+$font-family-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', monospace;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-base: 1.6;
+$line-height-sm: 1.4;
+$line-height-lg: 1.8;
+
+$headings-font-weight: 600;
+$headings-line-height: 1.3;
+$headings-margin-bottom: 0.75rem;
+
+// Heading sizes
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.75rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1rem;
+
+// -----------------------------------------------------------------------------
+// Spacing
+// -----------------------------------------------------------------------------
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: ($spacer * 0.25),
+    2: ($spacer * 0.5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3),
+    6: ($spacer * 4.5),
+    7: ($spacer * 6),
+);
+
+// -----------------------------------------------------------------------------
+// Border Radius
+// -----------------------------------------------------------------------------
+$border-radius-sm: 0.375rem;
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+$border-radius-xl: 1rem;
+$border-radius-2xl: 1.5rem;
+$border-radius-pill: 50rem;
+
+// -----------------------------------------------------------------------------
+// Shadows
+// -----------------------------------------------------------------------------
+$box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$box-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+// -----------------------------------------------------------------------------
+// Transitions
+// -----------------------------------------------------------------------------
+$transition-base: all 0.2s ease-in-out;
+$transition-fast: all 0.15s ease-in-out;
+$transition-slow: all 0.3s ease-in-out;
+
+// -----------------------------------------------------------------------------
+// Z-index
+// -----------------------------------------------------------------------------
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-modal-backdrop: 1040;
+$zindex-modal: 1050;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+
+// -----------------------------------------------------------------------------
+// Container widths
+// -----------------------------------------------------------------------------
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px,
+);
+
+// -----------------------------------------------------------------------------
+// Grid breakpoints
+// -----------------------------------------------------------------------------
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+// -----------------------------------------------------------------------------
+// Light Mode Colors (CSS Custom Properties fallbacks)
+// -----------------------------------------------------------------------------
+$light-primary: #2563eb !default;
+$light-primary-hover: #1d4ed8;
+$light-primary-light: #dbeafe;
+$light-secondary: #0f172a !default;
+$light-secondary-light: #334155;
+$light-bg: #ffffff;
+$light-bg-alt: #f8fafc;
+$light-surface: #f8fafc;
+$light-surface-hover: #f1f5f9;
+$light-border: #e2e8f0;
+$light-border-dark: #cbd5e1;
+$light-text: #0f172a;
+$light-text-muted: #64748b;
+$light-text-light: #94a3b8;
+$light-success: #059669;
+$light-success-light: #d1fae5;
+$light-warning: #d97706;
+$light-warning-light: #fef3c7;
+$light-danger: #dc2626;
+$light-danger-light: #fee2e2;
+$light-info: #0284c7;
+$light-info-light: #e0f2fe;
+
+// -----------------------------------------------------------------------------
+// Dark Mode Colors
+// -----------------------------------------------------------------------------
+$dark-primary: #3b82f6 !default;
+$dark-primary-hover: #60a5fa;
+$dark-primary-light: #1e3a5f;
+$dark-secondary: #f8fafc !default;
+$dark-secondary-light: #cbd5e1;
+$dark-bg: #0f172a;
+$dark-bg-alt: #020617;
+$dark-surface: #1e293b;
+$dark-surface-hover: #334155;
+$dark-border: #334155;
+$dark-border-dark: #475569;
+$dark-text: #f8fafc;
+$dark-text-muted: #94a3b8;
+$dark-text-light: #64748b;
+$dark-success: #10b981;
+$dark-success-light: #064e3b;
+$dark-warning: #f59e0b;
+$dark-warning-light: #78350f;
+$dark-danger: #ef4444;
+$dark-danger-light: #7f1d1d;
+$dark-info: #38bdf8;
+$dark-info-light: #0c4a6e;
+
+// -----------------------------------------------------------------------------
+// CSS Custom Properties (Root variables)
+// -----------------------------------------------------------------------------
+:root {
+    // Typography
+    --dash-font-family: #{$font-family-base};
+    --dash-font-mono: #{$font-family-monospace};
+
+    // Light mode (default)
+    --dash-primary: #{$light-primary};
+    --dash-primary-hover: #{$light-primary-hover};
+    --dash-primary-light: #{$light-primary-light};
+    --dash-secondary: #{$light-secondary};
+    --dash-secondary-light: #{$light-secondary-light};
+    --dash-bg: #{$light-bg};
+    --dash-bg-alt: #{$light-bg-alt};
+    --dash-surface: #{$light-surface};
+    --dash-surface-hover: #{$light-surface-hover};
+    --dash-border: #{$light-border};
+    --dash-border-dark: #{$light-border-dark};
+    --dash-text: #{$light-text};
+    --dash-text-muted: #{$light-text-muted};
+    --dash-text-light: #{$light-text-light};
+    --dash-success: #{$light-success};
+    --dash-success-light: #{$light-success-light};
+    --dash-warning: #{$light-warning};
+    --dash-warning-light: #{$light-warning-light};
+    --dash-danger: #{$light-danger};
+    --dash-danger-light: #{$light-danger-light};
+    --dash-info: #{$light-info};
+    --dash-info-light: #{$light-info-light};
+
+    // Shadows
+    --dash-shadow-sm: #{$box-shadow-sm};
+    --dash-shadow: #{$box-shadow};
+    --dash-shadow-md: #{$box-shadow-md};
+    --dash-shadow-lg: #{$box-shadow-lg};
+    --dash-shadow-xl: #{$box-shadow-xl};
+
+    // Border radius
+    --dash-radius-sm: #{$border-radius-sm};
+    --dash-radius: #{$border-radius};
+    --dash-radius-lg: #{$border-radius-lg};
+    --dash-radius-xl: #{$border-radius-xl};
+    --dash-radius-2xl: #{$border-radius-2xl};
+
+    // Transitions
+    --dash-transition: #{$transition-base};
+    --dash-transition-fast: #{$transition-fast};
+    --dash-transition-slow: #{$transition-slow};
+}
+
+// Dark mode variables
+[data-theme="dark"],
+.dark-mode {
+    --dash-primary: #{$dark-primary};
+    --dash-primary-hover: #{$dark-primary-hover};
+    --dash-primary-light: #{$dark-primary-light};
+    --dash-secondary: #{$dark-secondary};
+    --dash-secondary-light: #{$dark-secondary-light};
+    --dash-bg: #{$dark-bg};
+    --dash-bg-alt: #{$dark-bg-alt};
+    --dash-surface: #{$dark-surface};
+    --dash-surface-hover: #{$dark-surface-hover};
+    --dash-border: #{$dark-border};
+    --dash-border-dark: #{$dark-border-dark};
+    --dash-text: #{$dark-text};
+    --dash-text-muted: #{$dark-text-muted};
+    --dash-text-light: #{$dark-text-light};
+    --dash-success: #{$dark-success};
+    --dash-success-light: #{$dark-success-light};
+    --dash-warning: #{$dark-warning};
+    --dash-warning-light: #{$dark-warning-light};
+    --dash-danger: #{$dark-danger};
+    --dash-danger-light: #{$dark-danger-light};
+    --dash-info: #{$dark-info};
+    --dash-info-light: #{$dark-info-light};
+
+    // Adjusted shadows for dark mode
+    --dash-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+    --dash-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --dash-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --dash-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --dash-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+}
+

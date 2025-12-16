@@ -1,0 +1,475 @@
+// Theme Dash - Enrollment Page Styles
+// ====================================
+// Custom styling for course enrollment pages.
+
+// -----------------------------------------------------------------------------
+// Enrollment Container
+// -----------------------------------------------------------------------------
+.path-enrol {
+    .course-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Enrollment Page Header
+// -----------------------------------------------------------------------------
+.dash-enrollment-header {
+    background: linear-gradient(135deg, var(--dash-primary) 0%, #1e40af 100%);
+    color: #fff;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+
+    .dash-enrollment-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+
+        @media (max-width: 767.98px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+
+    .dash-enrollment-image {
+        width: 200px;
+        height: 200px;
+        border-radius: var(--dash-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--dash-shadow-xl);
+
+        @media (max-width: 767.98px) {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .dash-enrollment-info {
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+
+            @media (max-width: 767.98px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        .course-category {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .dash-enrollment-meta {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        @media (max-width: 767.98px) {
+            justify-content: center;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+
+            .icon {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Enrollment Content Layout
+// -----------------------------------------------------------------------------
+.dash-enrollment-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    @media (max-width: 991.98px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Main Enrollment Content
+// -----------------------------------------------------------------------------
+.dash-enrollment-main {
+    .course-summary {
+        background-color: var(--dash-bg);
+        border: 1px solid var(--dash-border);
+        border-radius: var(--dash-radius-lg);
+        padding: 2rem;
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: var(--dash-text-muted);
+            line-height: 1.7;
+        }
+    }
+
+    .course-sections-preview {
+        background-color: var(--dash-bg);
+        border: 1px solid var(--dash-border);
+        border-radius: var(--dash-radius-lg);
+        padding: 2rem;
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .sections-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                padding: 1rem;
+                border-bottom: 1px solid var(--dash-border);
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .section-number {
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: var(--dash-surface);
+                    border-radius: var(--dash-radius);
+                    font-weight: 600;
+                    color: var(--dash-text-muted);
+                }
+
+                .section-name {
+                    font-weight: 500;
+                    color: var(--dash-text);
+                }
+
+                .section-activities {
+                    margin-left: auto;
+                    font-size: 0.875rem;
+                    color: var(--dash-text-muted);
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Enrollment Sidebar
+// -----------------------------------------------------------------------------
+.dash-enrollment-sidebar {
+    @media (max-width: 991.98px) {
+        order: -1;
+    }
+
+    .enrollment-card {
+        background-color: var(--dash-bg);
+        border: 1px solid var(--dash-border);
+        border-radius: var(--dash-radius-lg);
+        padding: 2rem;
+        position: sticky;
+        top: 1rem;
+    }
+
+    .enrollment-price {
+        text-align: center;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--dash-border);
+        margin-bottom: 1.5rem;
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dash-text);
+        }
+
+        .price-original {
+            font-size: 1.25rem;
+            color: var(--dash-text-muted);
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+
+        .price-label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--dash-text-muted);
+            margin-top: 0.25rem;
+        }
+    }
+
+    .enrollment-actions {
+        margin-bottom: 1.5rem;
+
+        .btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .enrollment-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--dash-border);
+            font-size: 0.875rem;
+            color: var(--dash-text-muted);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .icon {
+                color: var(--dash-success);
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Enrollment Options
+// -----------------------------------------------------------------------------
+.enrolment-option {
+    background-color: var(--dash-surface);
+    border: 1px solid var(--dash-border);
+    border-radius: var(--dash-radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: var(--dash-transition-fast);
+
+    &:hover {
+        border-color: var(--dash-primary);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .enrol-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--dash-primary-light);
+            color: var(--dash-primary);
+            border-radius: var(--dash-radius);
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin: 0;
+        }
+    }
+
+    .enrol-description {
+        color: var(--dash-text-muted);
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .enrol-action {
+        .btn {
+            width: 100%;
+        }
+    }
+
+    // Self enrollment
+    &.enrol-self {
+        .enrol-heading .icon {
+            background-color: var(--dash-success-light);
+            color: var(--dash-success);
+        }
+    }
+
+    // Guest access
+    &.enrol-guest {
+        .enrol-heading .icon {
+            background-color: var(--dash-info-light);
+            color: var(--dash-info);
+        }
+    }
+
+    // Payment required
+    &.enrol-paypal,
+    &.enrol-fee {
+        .enrol-heading .icon {
+            background-color: var(--dash-warning-light);
+            color: var(--dash-warning);
+        }
+
+        .enrol-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dash-primary);
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Course Information Cards
+// -----------------------------------------------------------------------------
+.dash-course-info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 767.98px) {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        background-color: var(--dash-surface);
+        border-radius: var(--dash-radius);
+        padding: 1.5rem;
+        text-align: center;
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--dash-primary-light);
+            color: var(--dash-primary);
+            border-radius: var(--dash-radius);
+            margin: 0 auto 1rem;
+            font-size: 1.25rem;
+        }
+
+        .info-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            color: var(--dash-text-muted);
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Instructor Card
+// -----------------------------------------------------------------------------
+.dash-instructor-card {
+    background-color: var(--dash-surface);
+    border-radius: var(--dash-radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 575.98px) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .instructor-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @media (max-width: 575.98px) {
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .instructor-info {
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dash-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .instructor-role {
+            font-size: 0.875rem;
+            color: var(--dash-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .instructor-bio {
+            font-size: 0.875rem;
+            color: var(--dash-text-muted);
+            line-height: 1.6;
+        }
+    }
+}
+

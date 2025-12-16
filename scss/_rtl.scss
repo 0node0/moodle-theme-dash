@@ -1,0 +1,438 @@
+// Theme Dash - RTL (Right-to-Left) Styles
+// ========================================
+// Support for RTL languages like Arabic, Hebrew, etc.
+
+// -----------------------------------------------------------------------------
+// RTL Base Overrides
+// -----------------------------------------------------------------------------
+html[dir="rtl"],
+.dir-rtl {
+    // Text alignment
+    text-align: right;
+
+    // Flip directional margins and paddings
+    .ml-auto { margin-right: auto !important; margin-left: 0 !important; }
+    .mr-auto { margin-left: auto !important; margin-right: 0 !important; }
+    .pl-0 { padding-right: 0 !important; }
+    .pr-0 { padding-left: 0 !important; }
+
+    // Flip text alignment utilities
+    .text-left { text-align: right !important; }
+    .text-right { text-align: left !important; }
+
+    // Flip float utilities
+    .float-left { float: right !important; }
+    .float-right { float: left !important; }
+
+    // -----------------------------------------------------------------------------
+    // Navigation
+    // -----------------------------------------------------------------------------
+    .navbar-brand {
+        margin-right: 0;
+        margin-left: 1.5rem;
+    }
+
+    .primary-navigation {
+        .moremenu {
+            .nav-link {
+                .icon {
+                    margin-right: 0;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+
+    // Dropdown menus
+    .dropdown-menu {
+        text-align: right;
+    }
+
+    .dropdown-item {
+        .icon {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Breadcrumbs
+    // -----------------------------------------------------------------------------
+    .breadcrumb-item + .breadcrumb-item {
+        padding-left: 0;
+        padding-right: 0.5rem;
+
+        &::before {
+            float: right;
+            padding-right: 0;
+            padding-left: 0.5rem;
+            content: "\\";
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Forms
+    // -----------------------------------------------------------------------------
+    .form-control,
+    .form-select {
+        text-align: right;
+    }
+
+    .input-group {
+        > .form-control:not(:last-child),
+        > .form-select:not(:last-child) {
+            border-radius: 0 var(--dash-radius) var(--dash-radius) 0;
+        }
+
+        > .form-control:not(:first-child),
+        > .form-select:not(:first-child) {
+            border-radius: var(--dash-radius) 0 0 var(--dash-radius);
+        }
+
+        > .input-group-text:first-child {
+            border-radius: 0 var(--dash-radius) var(--dash-radius) 0;
+        }
+
+        > .input-group-text:last-child {
+            border-radius: var(--dash-radius) 0 0 var(--dash-radius);
+        }
+    }
+
+    // Checkbox and radio
+    .form-check {
+        padding-left: 0;
+        padding-right: 1.5rem;
+
+        .form-check-input {
+            float: right;
+            margin-left: 0;
+            margin-right: -1.5rem;
+        }
+    }
+
+    // Custom switch
+    .custom-switch {
+        padding-left: 0;
+        padding-right: 2.25rem;
+
+        .custom-control-label::before {
+            left: auto;
+            right: -2.25rem;
+        }
+
+        .custom-control-label::after {
+            left: auto;
+            right: calc(-2.25rem + 2px);
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Search
+    // -----------------------------------------------------------------------------
+    .dash-search {
+        .search-icon {
+            left: auto;
+            right: 0.75rem;
+        }
+
+        input[type="search"],
+        input[type="text"] {
+            padding-left: 1rem;
+            padding-right: 2.5rem;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Lists
+    // -----------------------------------------------------------------------------
+    ul, ol {
+        padding-left: 0;
+        padding-right: 2rem;
+    }
+
+    .list-unstyled,
+    .list-inline {
+        padding-right: 0;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Buttons
+    // -----------------------------------------------------------------------------
+    .btn {
+        .icon + span,
+        i + span {
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+
+        span + .icon,
+        span + i {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+    }
+
+    // Button groups
+    .btn-group {
+        > .btn:first-child {
+            border-radius: 0 var(--dash-radius) var(--dash-radius) 0;
+        }
+
+        > .btn:last-child {
+            border-radius: var(--dash-radius) 0 0 var(--dash-radius);
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Cards
+    // -----------------------------------------------------------------------------
+    .card-header {
+        .card-actions {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Tables
+    // -----------------------------------------------------------------------------
+    .table {
+        th, td {
+            text-align: right;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Modals
+    // -----------------------------------------------------------------------------
+    .modal-header {
+        .btn-close {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Alerts
+    // -----------------------------------------------------------------------------
+    .alert {
+        .alert-icon {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+
+        .btn-close {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Pagination
+    // -----------------------------------------------------------------------------
+    .pagination {
+        .page-item:first-child .page-link {
+            border-radius: 0 var(--dash-radius) var(--dash-radius) 0;
+        }
+
+        .page-item:last-child .page-link {
+            border-radius: var(--dash-radius) 0 0 var(--dash-radius);
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Footer
+    // -----------------------------------------------------------------------------
+    .dash-footer-col {
+        ul li a {
+            &:hover {
+                transform: translateX(-4px);
+            }
+
+            .icon,
+            i {
+                margin-right: 0;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    .dash-footer-social {
+        a:hover {
+            transform: translateY(-2px);
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Dark Mode Toggle
+    // -----------------------------------------------------------------------------
+    .dash-darkmode-toggle {
+        // No changes needed - centered content
+    }
+
+    // -----------------------------------------------------------------------------
+    // User Menu
+    // -----------------------------------------------------------------------------
+    .usermenu {
+        .dropdown-toggle {
+            .userpicture {
+                margin-right: 0;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Course Index / Drawer
+    // -----------------------------------------------------------------------------
+    [data-region="drawer"] {
+        right: auto;
+        left: 0;
+
+        &.drawer-right {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    .courseindex-item {
+        padding-left: 0;
+        padding-right: 1rem;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Activity Icons
+    // -----------------------------------------------------------------------------
+    .activityiconcontainer {
+        margin-right: 0;
+        margin-left: 0.75rem;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Blocks
+    // -----------------------------------------------------------------------------
+    .block {
+        .block-controls {
+            float: left;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Front Page Blocks
+    // -----------------------------------------------------------------------------
+    .dash-feature-card {
+        text-align: right;
+    }
+
+    .dash-testimonial-author {
+        flex-direction: row-reverse;
+    }
+
+    .dash-faq-question {
+        text-align: right;
+
+        .dash-faq-icon {
+            margin-left: 0;
+            margin-right: auto;
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Enrollment Page
+    // -----------------------------------------------------------------------------
+    .dash-enrollment-header {
+        .dash-enrollment-inner {
+            @media (max-width: 767.98px) {
+                text-align: center;
+            }
+        }
+    }
+
+    .enrolment-option {
+        .enrol-heading {
+            flex-direction: row-reverse;
+
+            .icon {
+                margin-right: 0;
+                margin-left: 0.75rem;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Notifications Badge
+    // -----------------------------------------------------------------------------
+    .popover-region-notifications {
+        .popover-region-toggle {
+            .count-container {
+                right: auto;
+                left: -2px;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Back to Top
+    // -----------------------------------------------------------------------------
+    .dash-back-to-top {
+        right: auto;
+        left: 2rem;
+    }
+
+    // -----------------------------------------------------------------------------
+    // Hero Block
+    // -----------------------------------------------------------------------------
+    .dash-hero {
+        .dash-hero-content {
+            @media (min-width: 992px) {
+                direction: rtl;
+            }
+        }
+
+        .dash-hero-actions {
+            justify-content: flex-start;
+
+            @media (max-width: 991.98px) {
+                justify-content: center;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Course Cards
+    // -----------------------------------------------------------------------------
+    .dash-course-card {
+        .dash-course-image {
+            .dash-course-badge {
+                left: auto;
+                right: 1rem;
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
+    // Pricing Cards
+    // -----------------------------------------------------------------------------
+    .dash-pricing-card {
+        &.featured {
+            .dash-pricing-badge {
+                left: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        .dash-pricing-features {
+            text-align: right;
+
+            li {
+                flex-direction: row-reverse;
+
+                .icon {
+                    margin-left: 0;
+                    margin-right: 0.75rem;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,63 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_dash/drawer
+
+    Drawer/sidebar for the Dash theme.
+}}
+{{#hasblocks}}
+<div id="theme_dash-drawers-blocks" class="drawer drawer-right{{^blockdraweropen}} hidden{{/blockdraweropen}}" 
+     data-region="right-hand-drawer" 
+     role="region" 
+     aria-label="{{#str}}blocks, theme_dash{{/str}}">
+    <div class="drawerheader">
+        <button class="btn drawertoggle icon-no-margin" 
+                data-toggler="drawers" 
+                data-action="closedrawer" 
+                data-target="theme_dash-drawers-blocks"
+                aria-label="{{#str}}closeblocksanddrawer, core{{/str}}">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="drawercontent">
+        <section class="d-print-none" aria-label="{{#str}}blocks, theme_dash{{/str}}">
+            {{{ sidepreblocks }}}
+        </section>
+    </div>
+</div>
+{{/hasblocks}}
+
+{{#hascourseindex}}
+<div id="theme_dash-drawers-courseindex" class="drawer drawer-left{{^courseindexopen}} hidden{{/courseindexopen}}" 
+     data-region="left-hand-drawer" 
+     role="region" 
+     aria-label="{{#str}}courseindex, theme_dash{{/str}}">
+    <div class="drawerheader">
+        <button class="btn drawertoggle icon-no-margin" 
+                data-toggler="drawers" 
+                data-action="closedrawer" 
+                data-target="theme_dash-drawers-courseindex"
+                aria-label="{{#str}}closecourseindex, core{{/str}}">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="drawercontent">
+        {{{ courseindex }}}
+    </div>
+</div>
+{{/hascourseindex}}
+
