@@ -119,7 +119,7 @@ grunt amd
 
 ## Credits
 
-- Inspired by [Scholastica Theme](https://rosea.io/scholastica-theme/) by Marcin Czaja
+- Inspired by Scholastica Theme
 - Built on Moodle's Boost theme
 - Typography: DM Sans (Google Fonts)
 
